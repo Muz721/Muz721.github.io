@@ -1,0 +1,171 @@
+<!doctype html><!--声明文档类型 网页  DTD HTML5-->
+<html><!--网页文档结构开始的地方 圈地-->
+<head><!--设置网页基本信息 负责对外通讯 给机器看的-->
+<title>京东Banner</title><!--设置标题-->
+<meta charset="UTF-8"><!--设置编码格式 支持中文-->
+<!--设置网页关键字，方便搜索引擎搜索 seo优化-->
+<meta name="Keywords" content= "web前端">
+<!--设置网页描述信息 免费的广告位-->
+<meta name="Description" content= "欢迎">
+<title>Document</title>
+<style>/*统一存放页面中样式的区域   图纸*/
+*{/*通配符选择器 选择页面所有元素*/
+margin:0;/*清除默认外边距*/
+padding:0;/*清除默认内边距*/
+}
+li{/*标签选择器*/
+list-style:none;/*清除默认小圆点*/
+}
+#wrap{/*id选择器 #+id名称{}*/
+position:relative;/*相对定位 参考系 定位父级*/
+width:790px;/*属性名称：属性值(单位);*/
+height:340px;/*高度*/
+margin:100px auto;/*外边距 上下  左右(auto居中)*/
+/*盒子阴影 x位移  y位移 羽化与半径*/
+box-shadow:0px 0px 9px #222;
+}
+#wrap ul.pic li{
+display:none;
+position:absolute;/*绝对定位  定位子元素  重叠时和position:relative;同时出现*/
+top:0;
+left:0;
+width:790px;
+height:340px;
+}
+#wrap ul.lib{
+display:flex;/*开启弹性盒模型布局*/
+/*主轴(横向)排列方式 环绕 均分*/
+justify-content:space-around;/*平均分布*/
+/*辅轴排列方式 居中*/
+align-items:center;/*子条目居中*/
+position:absolute;
+bottom:20px;
+left:0px;right:0px;/*使其居中 距离为0*/
+margin:auto;/*居中*/
+width:120px;
+height:20px;
+background:rgba(255,255,255,.5);/*.5 表示透明度50%*/
+border-radius:10px;/*弧度*/
+}
+#wrap ul.lib li{
+width:12px;
+height:12px;
+/*float:left;*/
+background:#fff;
+border-radius:50%;/*50% 可使变成整个圆*/
+}
+#wrap ul.lib li.on{
+background:red;
+}
+#wrap ul.btn li{
+position:absolute;
+top:50%;
+margin-top:-40px;/*向上拉取高度一半*/
+width:40px;
+height:80px;
+background:rgba(0,0,0,.5);/*三个0代表为黑*/
+font-size:30px;/*字体大小*/
+text-align:center;/*水平居中*/
+line-height:80px;/*行高 = 高度 垂直*/
+color:#fff;/*文本颜色*/
+cursor:pointer;/**/
+}
+#wrap ul.btn li.next{
+right:0;
+}
+</style>
+</head>
+<body><!--网页内容主题展示区域-->
+<div id="wrap">
+<ul class="pic"><!--图片要写原始大小-->
+<li><img src="img/a.jpg" width="790px" height="340px" alt="沙漠"/></li>
+<li><img src="img/b.jpg" width="790" height="340" alt="沙丘"/></li>
+<li><img src="img/c.jpg" width="790" height="340" alt="石子桥"/></li>
+<li><img src="img/d.jpg" width="790" height="340" alt="秋天湖"/></li>
+<li><img src="img/timg.jpg" width="790" height="340" alt="日出"/></li>
+</ul>
+<ul class="lib">
+<li class="on"></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<ul class="btn">
+<li class="prev">&lt;</li>
+<li class="next">&gt;</li>
+</ul>
+</div>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+/*
+javaScript      java
+基于原型的动态解释性脚本语言
+
+前端
+1.响应用户的操作 事件 鼠标点击  键盘按键
+2.操作dom元素  增删改查 style属性
+3.数据交互 ajax json jsonp 登录注册  正则表达式
+4.造轮子 mvc mvvm vue angular
+*/
+/*
+需求分析
+用户点击上一张(prev)或者下一张按钮(next),pic中对应的序号li显示淡入，其他的li淡出;
+元素:.prev  .next   ul.pic>li
+事件:点击事件
+行为:初始化 序号  下标   index  淡入  淡出   fadeIn fadeOut
+点击下一张  下标增加
+*/
+var $pic = $('#wrap ul.pic li');/*获取所有的pic>li标签 var $pic = 获取到标签节点*/
+var $lib = $('#wrap ul.lib li');
+var $next = $('#wrap ul.btn li.next');//下一张
+var $prev = $('#wrap ul.btn li.prev');//上一张
+var index = 0;//通用下标
+var length = $pic.length;
+init();
+function init(){//初始化函数
+//pic中第0个  淡入  其他的兄弟淡出
+$pic.eq(0).fadeIn().siblings().fadeOut();
+}
+$next.click(function(){
+//alert('下一张');
+index++;//下标自增
+index%=length;//取余使其循环
+play();
+})
+
+function play(){//切换效果
+$pic.eq(index).fadeIn().siblings().fadeOut();
+$lib.eq(index).addClass("on").siblings().removeClass("on");
+}
+$prev.click(function(){
+index--;//下标自增
+index = index<0?length-1:index;
+//index%=length;亦可
+play();
+})
+</script>
+</body>
+</html>
+
+
+<!--div: 盒子模型 在页面上划分区域的元素
+
+id命名:通过id名称选择具体的标签 唯一性 
+
+一级主体架构  关键功能性标签  js功能寻址
+
+css:修饰页面元素的样式 宽度 高度 位置 背景
+
+class:选择一类标签 可复用  
+
+盒子阴影 box-shadow
+
+ui>li 无序列表标签
+
+img 四元素
+src 
+alt 描述信息 图片搜索关键字
+width 图片原始宽度
+height 图片原始高度
+-->
