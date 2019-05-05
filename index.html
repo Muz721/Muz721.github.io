@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Muz | 幕栀学习笔记 &#8211; </title>
     <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+    
+<link rel='stylesheet' id='anima-themefonts-css'  href='fonts/fontfaces.css?ver=1.0.3' type='text/css' media='all' />
+
+
 </head>
 
 <body>
@@ -46,19 +50,19 @@
                         <div></div>
                         <div>
                             <ul id="prime_nav">
-                                <li class="current-menu-item current_page_item"><a><span>首页</span></a></a></li>
+                                <li class="current-menu-item"><a><span>首页</span></a></a></li>
                                 <li><a><span>关于</span></a></a></li>
                                 <li><a><span>博客</span></a></a></li>
                                 <li><a><span>联系</span></a></a></li>
-                                <li class="menu-main-search menu-search-animated"><i class="icon-search"></i>
-                                    <form role="search" method="get" class="searchform" action="http://muzhi.ink/">
+                                <li class="menu-main-search menu-search-animated"><i id="prime_searsh" class="icon-search"></i>
+                                    <form role="search" method="get" id="prime_searsh_form" class="searchform" action="http://muzhi.ink/">
                                         <label>
                                             <span class="screen-reader-text">Search for:</span>
                                             <input type="search" class="s" placeholder="Search" value="" name="s">
                                         </label>
                                         <button type="submit" class="searchsubmit"><span class="screen-reader-text">Search</span><i class="icon-search"></i></button>
                                     </form>
-                                     <i class="icon-cancel"></i></li>
+                                     <i id="prime_cancel" class="icon-cancel"></i></li>
                             </ul>
                         </div>
                     </nav>
@@ -66,6 +70,7 @@
             </div>
         </header>
     </div>
-</body>
 
+</body>
+<script type='text/javascript' src='js/main.js'></script>
 </html>

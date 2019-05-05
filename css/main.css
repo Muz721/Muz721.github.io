@@ -1,5 +1,17 @@
+html {
+    font-family: 'Raleway';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.8;
+}
 body{
     margin: 0;
+}
+*,
+*::before,
+*::after {
+	-webkit-box-sizing: inherit;
+	        box-sizing: inherit;
 }
 h1,h2,h3,h4,h5,h6{
     clear: both;
@@ -10,11 +22,16 @@ h1,div,span,a,nav,ul,li,form,label{
     border: 0;
     font: inherit;
 }
-#branding{
-height: 85px;
-margin-right: 3em;
-float: left;
-transition: .5s height ease-in-out;
+a{
+    color: #D0422C;
+    cursor:pointer;
+}
+a:link,
+a:visited {
+	text-decoration: none;
+}
+ul{
+    list-style: outside disc;
 }
 #site-header-main{
 height: 85px;
@@ -26,11 +43,10 @@ top: 0;
 display: inline-block;
 margin: 0 auto;
 background-color: #FFFFFF;
-border-bottom-color: rgba(0,0,0,.05);
 z-index: 101;
 vertical-align: top;
-border-bottom: 1px solid transparent;
-transition: all .2s linear;
+border-bottom: 1px solid;
+border-bottom-color: rgba(0,0,0,.05);
 box-sizing: inherit;
 }
 #site-text{ 
@@ -46,31 +62,23 @@ box-sizing: inherit;
     font-weight: 400;
     float: left;
     position: relative;
+    display: inline-block;
     line-height: 1.4;
-    transition: .35s ease-in-out all;
 }
-a{
-    color: #D0422C;
-}
-a:link,
-a:visited {
-	text-decoration: none;
-}
-*,
-*::before,
-*::after {
-	-webkit-box-sizing: inherit;
-	        box-sizing: inherit;
-}
+#branding{
+    height: 85px;
+    margin-right: 3em;
+    float: left;
+
+    }
+
 #access {
     display: inline;
 }
 #access {
     float: right;
 }
-ul{
-    list-style: outside disc;
-}
+
 
 #access ul li{
     display:block;
@@ -84,12 +92,10 @@ ul{
 #access li{
     transition: background .3s ease-in-out,color .3s ease-in-out;
 }
-#access>div>ul>li.current_page_item>a,
 #access>div>ul>li.current-menu-item>a{
     color:#777777;
 }
-#access ul li.current_page_item > a, #access ul li.current-menu-item > a {
-}
+
 #access div > ul > li > a {
     line-height: 85px;
 }
@@ -139,12 +145,21 @@ ul{
     position: static;
     padding: 0 .4em;
 }
-#access > div > ul > li,menu-search-animated{
-    text-align: center;
-}
+
 .menu-search-animated, #sheader-container, .identity, #nav-toggle {
     height: 85px;
     line-height: 85px;
+}
+
+#access .menu-search-animated {
+    padding: 0 .3em;
+}
+#access li.menu-main-search {
+    position: static;
+    padding: 0 .4em;
+}
+#access > div > ul > li,menu-search-animated{
+    text-align: center;
 }
 #access .menu-main-search i.icon-search {
     display: inline-block;
@@ -261,3 +276,44 @@ button{
     font-size: 1.2em;
     cursor: pointer;
 }
+#prime_nav span::before, #site-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    margin: auto;
+    height: 1px;
+    opacity: .5;
+    -webkit-transition: .2s ease-out all;
+    transition: .2s ease-out all;
+}
+#prime_nav span::before,#site-title::before {
+    -webkit-transition: .35s ease-out all;
+    transition: .35s ease-out all;
+}
+#site-title::before {
+    background-color: #777777;
+}
+#site-title a:hover{
+    color: #777777; 
+}
+#prime_nav span::before{
+    background-color: #D0422C;
+}
+#prime_nav span:hover,.icon-search:hover::before{
+    color: #D0422C;
+}
+#prime_nav span:hover::before,#site-title:hover::before {
+	width: 100%;
+}
+#access i.icon-search::before {
+    display: block;
+    font-style: normal;
+    font-size: 1.1em;
+}
+#masthead:hover .icon-cancel{
+    color: #D0422C;
+}
+
