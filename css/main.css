@@ -1,27 +1,38 @@
-html {
-    font-family: 'Raleway';
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.8;
-}
-body{
-    margin: 0;
-}
 *,
 *::before,
 *::after {
 	-webkit-box-sizing: inherit;
 	        box-sizing: inherit;
 }
-h1,h2,h3,h4,h5,h6{
-    clear: both;
+html {
+    font-family: 'Raleway';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
 }
-h1,div,span,a,nav,ul,li,form,label{
+body,header,h1,div,span,a,nav,ul,li,form,label{
     margin: 0;
     padding: 0;
     border: 0;
     font: inherit;
 }
+html {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+body {
+    color: #666;
+    background-color: #FFF;
+    font-size: 1em;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+h1,h2,h3,h4,h5,h6{
+    clear: both;
+}
+
 a{
     color: #D0422C;
     cursor:pointer;
@@ -33,10 +44,19 @@ a:visited {
 ul{
     list-style: outside disc;
 }
+i {
+    font-style: italic;
+}
+#access > div > ul > li, #access > div > ul > li > a, #access .menu-search-animated .searchform input[type="search"] {
+    color: #63666B;
+}
+#masthead:hover .icon-cancel{
+    color: #D0422C;
+}
 #site-header-main{
 height: 85px;
 width: 100%;
-position: relative;
+position: fixed;
 left: 0;
 right: 0;
 top: 0;
@@ -47,23 +67,14 @@ z-index: 101;
 vertical-align: top;
 border-bottom: 1px solid;
 border-bottom-color: rgba(0,0,0,.05);
-box-sizing: inherit;
 }
-#site-text{ 
+#site-header-main-inside {
     position: relative;
-    top: 50%;
-    display: inline-block;
-    float: left;
-    transform: translateY(-50%);
-}
-#site-title{
-    font-family: Raleway;
-    font-size: 120%;
-    font-weight: 400;
-    float: left;
-    position: relative;
-    display: inline-block;
-    line-height: 1.4;
+    width: 100%;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin: 0 auto;
+    max-width: 1380px;
 }
 #branding{
     height: 85px;
@@ -71,107 +82,110 @@ box-sizing: inherit;
     float: left;
 
     }
-
-#access {
-    display: inline;
-}
+#site-text{ 
+        position: relative;
+        top: 50%;
+        float: left;
+        transform: translateY(-50%);
+    }
+    #prime_nav span::before, #site-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        margin: auto;
+        height: 1px;
+        opacity: .5;
+        -webkit-transition: .2s ease-out all;
+        transition: .2s ease-out all;
+    }
+    #prime_nav span::before,#site-title::before {
+        -webkit-transition: .35s ease-out all;
+        transition: .35s ease-out all;
+    }
+    #site-title::before {
+        background-color: #777777;
+    }
+    #site-title a:hover{
+        color: #777777; 
+    }
+    #site-title{
+        /* font-family: 'Raleway';
+        font-size: 120%;
+        font-weight: 400; */
+        float: left;
+        position: relative;
+        line-height: 1.4;
+    }
+    #sheader-container{
+        position: relative;
+        float: right;
+        margin-left: .5em;
+    } 
+.menu-search-animated, 
+#sheader-container, 
+.identity,
+#nav-toggle {
+    height: 85px;
+    line-height: 85px;
+    }
 #access {
     float: right;
 }
 
 
 #access ul li{
-    display:block;
-}
-#access ul li {
     display: block;
     float: left;
     position: relative;
     white-space: nowrap;
 }
-#access li{
-    transition: background .3s ease-in-out,color .3s ease-in-out;
-}
-#access>div>ul>li.current-menu-item>a{
-    color:#777777;
-}
-
-#access div > ul > li > a {
-    line-height: 85px;
-}
-#access > div > ul > li > a {
-    position: relative;
-    z-index: 999;
+#access a{
+    display: block;
+    padding: 0 1.6em;
+    text-decoration: none;
 }
 #access ul li a {
     font-family: Raleway;
     font-size: 100%;
     font-weight: 300;
 }
-#access a{
-    display: block;
-    padding: 0 1.6em;
-    text-decoration: none;
-    transition: .3s color ease-in-out;
+#access li.menu-main-search{
+    position: static;
+    padding: 0 .4em;
 }
+#access .menu-search-animated {
+    padding: 0 .3em;
+}
+#access>div>ul>li.current-menu-item>a{
+    color:#777777;
+}
+#access > div > ul > li > a {
+    line-height: 85px;
+    position: relative;
+    z-index: 999;
+}
+
+
 #access > div > ul > li > a > span {
     position: relative;
     display: inline-block;
     line-height: 2.5em;
 }
-#site-header-main-inside {
-    position: relative;
-    width: 100%;
-}
-#site-header-main-inside{
-    padding-left: 2em;
-    padding-right: 2em;
-}
-#site-header-main-inside{
-    margin: 0 auto;
-    max-width: 1380px;
-}
-#access > div > ul > li, #access > div > ul > li > a, .anima-over-menu .header-fixed#site-header-main #access > div > ul > li:not([class*='current']), .anima-over-menu .header-fixed#site-header-main #access > div > ul > li:not([class*='current']) > a, .anima-over-menu .header-fixed#site-header-main #sheader.socials a::before, #sheader.socials a::before, #access .menu-search-animated .searchform input[type="search"] {
-    color: #63666B;
-}
-#sheader-container{
-    height: 85px;
-    line-height: 85px;
-    position: relative;
-    float: right;
-    margin-left: .5em;
-}
-#access li.menu-main-search{
-    position: static;
-    padding: 0 .4em;
-}
-
-.menu-search-animated, #sheader-container, .identity, #nav-toggle {
-    height: 85px;
-    line-height: 85px;
-}
-
-#access .menu-search-animated {
-    padding: 0 .3em;
-}
-#access li.menu-main-search {
-    position: static;
-    padding: 0 .4em;
-}
 #access > div > ul > li,menu-search-animated{
     text-align: center;
+}
+#access i.icon-search {
+    cursor: pointer;
 }
 #access .menu-main-search i.icon-search {
     display: inline-block;
     padding-right: .5em;
     padding-left: .5em;
 }
-#access i.icon-search {
-    cursor: pointer;
-}
-i {
-    font-style: italic;
-}
+
 .searchform{
     overflow: hidden;
 }
@@ -187,6 +201,8 @@ i {
     margin: 0 auto;
     border: 0;
     border-radius: 4px;
+    height: 84px;
+    line-height: 84px;
 }
 input[type="search"] {
     max-width: 100%;
@@ -195,6 +211,7 @@ input[type="search"] {
 }
 input[type="search"] {
     -webkit-appearance: textfield;
+    outline: none;
 }
 .searchform input[type="search"] {
     display: block;
@@ -209,27 +226,18 @@ input[type="search"] {
     -webkit-transition: .3s all ease-out;
     transition: .3s all ease-out;
 }
-#access .menu-search-animated .searchform{
+.menu-search-animated .searchform input[type="search"], #access .menu-search-animated .searchform{
     background-color: #FFFFFF;
-}
-#access .menu-search-animated .searchform {
-    height: 84px;
-    line-height: 84px;
 }
 #access .menu-search-animated .searchform input[type="search"] {
     padding-left: 1em;
     padding-right: 1em;
-}
-#access .menu-search-animated .searchform input[type="search"] {
     height: 100%;
     border: 0;
     font-size: 1.2em;
     font-weight: 400;
 }
-.screen-reader-text {
-    position: absolute;
-    left: -9000px;
-}
+
 button{
     border-radius: 100px;
     font-family: inherit;
@@ -239,9 +247,6 @@ button{
 }
 .searchform .searchsubmit {
     color: #666;
-}
-.searchform .searchsubmit {
-    display: block;
     position: absolute;
     left: 0;
     top: 0;
@@ -258,14 +263,7 @@ button{
     transition: .3s all ease-in-out;
 }
 
-#access i.icon-search {
-    cursor: pointer;
-}
-#access .menu-main-search i.icon-search {
-    display: inline-block;
-    padding-right: .5em;
-    padding-left: .5em;
-}
+
 
 .menu-main-search .icon-cancel {
     display: none;
@@ -276,29 +274,7 @@ button{
     font-size: 1.2em;
     cursor: pointer;
 }
-#prime_nav span::before, #site-title::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 0;
-    margin: auto;
-    height: 1px;
-    opacity: .5;
-    -webkit-transition: .2s ease-out all;
-    transition: .2s ease-out all;
-}
-#prime_nav span::before,#site-title::before {
-    -webkit-transition: .35s ease-out all;
-    transition: .35s ease-out all;
-}
-#site-title::before {
-    background-color: #777777;
-}
-#site-title a:hover{
-    color: #777777; 
-}
+
 #prime_nav span::before{
     background-color: #D0422C;
 }
@@ -313,7 +289,5 @@ button{
     font-style: normal;
     font-size: 1.1em;
 }
-#masthead:hover .icon-cancel{
-    color: #D0422C;
-}
+
 

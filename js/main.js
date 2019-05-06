@@ -11,4 +11,14 @@ function init() {
         prime_searsh_form.style.display="none";
         prime_cancel.style.display="none";
     }
+// 监听 visibility change 事件
+
+document.addEventListener('visibilitychange',function(){
+    if(document.hidden){
+        document.title = '测试';
+    } else {
+        document.title = '标题';
+    }
+    
+    });
 }
