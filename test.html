@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/test.css"/>
+</head>
+<body>
+    <header id="main_header">
+        <div id="main_branding">
+            <span><a id="main_icon",title="">Muz | 幕栀学习笔记</a></span>
+        </a>
+    </h1>
+        </div>
+        <div id="main_menu">
+            <ul>
+                <li class="current-menu-item"><a><span>首页</span></a></li>
+                <li><a><span>关于</span></a></a></li>
+                <li><a><span>博客</span></a></a></li>
+                <li><a><span>联系</span></a></a></li>
+            </ul>
+        </div>
+    </header>
+    <script>
+        init();
+        function init(){
+            var icon = document.getElementById("main_icon");
+            var brand = new XMLHttpRequest();
+            brand.onreadystatechange = function(){
+                myObj = JSON.parse(this.responseText);
+                icon.innerText = myObj.name;
+                document.title = myObj.name;
+            }
+            brand.open("GET","json.json",true);
+            brand.send();
+        }
+        </script>
+</body>
+</html>
