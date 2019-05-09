@@ -26,10 +26,12 @@ border-bottom-color: rgba(0,0,0,.05);
     top: 50%;
     transform: translateY(-50%);
 }
-#main_branding span{
+#main_branding a{
     color: #D0422C;
+    line-height: 1.8;
+    text-decoration:none; 
 }
-#main_branding span::before{
+#main_branding a::before{
     content: "";
     position: absolute;
     left: 0;
@@ -43,10 +45,10 @@ border-bottom-color: rgba(0,0,0,.05);
     -webkit-transition: .2s ease-out all;
     transition: .2s ease-out all;
 }
-#main_branding span:hover{
+#main_branding a:hover{
     color: #777777;
 }
-#main_branding span:hover::before{
+#main_branding a:hover::before{
     width: 100%;
 }
 #main_menu{

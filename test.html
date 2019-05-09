@@ -6,11 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="./css/test.css"/>
+
+    <link rel="icon" href="img/cropped-muz-e1516719442156-2-32x32.png" sizes="32x32" />
+    <link rel="icon" href="img/cropped-muz-e1516719442156-2-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="img/cropped-muz-e1516719442156-2-180x180.png" />
 </head>
 <body>
     <header id="main_header">
         <div id="main_branding">
-            <span><a id="main_icon",title="">Muz | 幕栀学习笔记</a></span>
+            <a id="main_icon",title="">Muz | 幕栀学习笔记</a>
         </a>
     </h1>
         </div>
@@ -30,6 +34,7 @@
             var brand = new XMLHttpRequest();
             brand.onreadystatechange = function(){
                 myObj = JSON.parse(this.responseText);
+                icon.href = myObj.url;
                 icon.innerText = myObj.name;
                 document.title = myObj.name;
             }
